@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Words API</title>
+	<link rel="stylesheet" href="s
+	tyles/style.css">
+</head>
+<body>
+
+
+	<div class="wrapper">
+
+		<!-- Pick a word modal -->
+		<div class="modal">
+			<div class="x"><p>X</p></div>
+			<div class="modal-wrapper">
+				<form class="mainWord" action="">
+					<input class="userWord" type="text" name="word" placeholder="enter a word">
+					<input class="submit" type="submit" name="submit">			 
+				</form>
+			</div>
+		</div>
+
+		<div class="section left">
+			<h2>Antonyms</h2>
+			<div class="antonyms">
+				<ul class="word-list antonym-list">
+				<!-- antonyms go here -->
+				</ul>
+			</div>
+		</div>
+
+		<div class="section middle">
+			<div class="definition"></div>
+			<button class="new-word">New Word</button>
+		</div>
+
+		<div class="section right">
+			<h2>Synonyms</h2>
+			<div class="synonyms">
+				<ul class="word-list synonym-list">
+				<!-- synonyms go here -->
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+
+
+
+	<!-- JQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="thesaurus_api.js"></script>
+
+</body>
+</html>
+
+
