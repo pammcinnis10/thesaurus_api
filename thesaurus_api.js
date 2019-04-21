@@ -14,9 +14,13 @@ app.getSynonyms = function(word) {
             key: `${apiKey}`
         }
     }).then(function(data) {
+        const defResults = data[0].shortdef;        
         const antResults = data[0].meta.ants[0];
         const synResults = data[0].meta.syns[0];
 
+        const definition = defResults.map(item => {
+            return item;
+        });
         const antonyms = antResults.map(item => {
             return item;
         });
@@ -24,39 +28,69 @@ app.getSynonyms = function(word) {
             return item;
         });
 
-        app.displayWords(antonyms, synonyms);
+        app.displayWords(definition, antonyms, synonyms);
     });
 }
 
 
-app.displayWords = function(ant, syn) {
+app.displayWords = function(def, ant, syn) {
+    const defListHtml = def.map(item => {
+        return `<li class="def-list-item"><i class="fas fa-rainbow rainbow-text"></i> ${item}</li>`;
+    });
     const antListHtml = ant.map(item => {
-        return `<li class="">${item}</li>`;
+        return `<li class="ant-list-item">${item}</li>`;
     });
     const synListHtml = syn.map(item => {
-        return `<li class="">${item}</li>`;
+        return `<li class="syn-list-item">${item}</li>`;
     });    
-    $('.antonym-list').html(antListHtml);
-    $('.synonym-list').html(synListHtml.slice(0, 5));
+    $('.definition-list').html(defListHtml);
+    $('.antonym-list').html(antListHtml.slice(0,9));
+    $('.synonym-list').html(synListHtml.slice(0,9));
 }
 
 
 
 app.init = function() {
 
+    app.getSynonyms('happiness');
+    $('h2.chosen-word').html('Happiness');
+    
+    
+    // WATCHING EVENT HANDLERS ------------------
+
+    // form submit 
     $('form').on('submit', function(event) {
         event.preventDefault();
+        $('#word' + '.flip-card-inner').removeClass('flip-this-card').addClass('unflip-this-card');
         const word = $('input[type=text]').val();
+        $('h2.chosen-word').html(word.charAt(0).toUpperCase() + word.slice(1));
+        $('.flip-card-inner').removeClass('flip-this-card').addClass('unflip-this-card');
         app.getSynonyms(word);
     });
 
-    $('.x').on('click', function() {
-        $('.modal').addClass( "closeModal" );
+    // 'new word' button 
+    $('.new-word-button').on('click', function() {
+        $('#word' + '.flip-card-inner').addClass('flip-this-card');
+        $('h2').addClass('fade');
     });
 
-    $('.new-word-button').on('click', function() {
-        $('.modal').removeClass("closeModal").addClass("openModal");
-    })
+    
+    $('.flip-card-front').on('click', function() {
+        const id = '#' + this.id;
+        console.log(id);
+        $(id+'.flip-card-inner').addClass('flip-this-card');
+        $(this).removeClass('flip-this-card');
+    });
+
+    $('.flip-card-back').on('click', function() {
+        const id = '#' + this.id;
+        console.log(id);
+        $(id+'.flip-card-inner').removeClass('flip-this-card').addClass('unflip-this-card');
+    });
+};
+
+app.flipCard = function() {
+  
 };
 
 

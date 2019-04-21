@@ -3,51 +3,87 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Thesaurus API</title>
-	<link rel="stylesheet" href="s
-	tyles/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<link href="https://fonts.googleapis.com/css?family=Righteous|Courgette" rel="stylesheet">
+
+	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 
-
 	<div class="wrapper">
 
-		<!-- Pick a word modal -->
-		<div class="modal openModal">
-			<div class="x"><p>X</p></div>
-			<div class="modal-wrapper">
-				<form class="mainWord" action="">
-					<input class="userWord" type="text" name="word" placeholder="enter a word">
-					<input class="submit" type="submit" name="submit">			 
-				</form>
+	<div class="half-wrapper">
+		<div class="section top-left flip-card">
+			<div class="flip-card-inner" id="word">
+				<div class="flip-card-f" id="word">					
+					<button class="new-word-button">New Word</button>				
+					<h2 class="chosen-word rainbow-text">
+						<!-- chosen word goes here -->
+					</h2>
+					
+				</div>
+				<div class="flip-card-b" id="word">					<!-- <div class="x"><p>X</p></div> -->
+					<form class="word-form" action="">
+						<input class="userWord" type="text" autocomplete="off" name="word" placeholder="Type in a word! Adjectives work best :)" required>
+						<input class="submit" type="submit" name="submit">			 
+					</form>
+				</div>
 			</div>
 		</div>
 
-		<div class="section left">
-			<h2 class="ant-title"> Antonyms</h2>
-			<div class="antonyms">
-				<ul class="word-list antonym-list">
-				<!-- antonyms go here -->
-				</ul>
-			</div>
+		<div class="section top-right flip-card">
+			<div class="flip-card-inner" id="def">
+				<div class="flip-card-front" id="def">
+					<h2 class="def-title">Definitions</h2>
+				</div>
+				<div class="flip-card-back" id="def">
+					<ul class="word-list definition-list">
+						<!-- definitions go here -->
+					</ul>
+				</div>
+			</div>	
 		</div>
 
-		<div class="section middle">
-			<div class="definition"></div>
-			<button class="new-word-button">New Word</button>
+	</div>
+
+	<div class="half-wrapper">
+		<div class="section bottom-left flip-card">
+			<div class="flip-card-inner" id="ant">
+				<div class="flip-card-front" id="ant">
+					<h2 class="ant-title">Antonyms</h2>
+				</div>
+				<div class="antonyms flip-card-back" id="ant">
+					<ul class="word-list antonym-list">
+					<!-- antonyms go here -->
+					</ul>
+				</div>
+			</div>
+
 		</div>
 
-		<div class="section right">
-			<h2 class="syn-title">Synonyms</h2>
-			<div class="synonyms">
-				<ul class="word-list synonym-list">
-				<!-- synonyms go here -->
-				</ul>
+		<div class="section bottom-right flip-card">
+			<div class="flip-card-inner" id="syn">
+				<div class="flip-card-front" id="syn">
+					<h2 class="syn-title">Synonyms</h2>
+				</div>
+
+				<div class="synonyms flip-card-back" id="syn">
+					<ul class="word-list synonym-list">
+					<!-- synonyms go here -->
+					</ul>
+				</div>
 			</div>
+			
 		</div>
+	</div>
+	
+	
 	
 	</div>
 
 
+	
 
 	<!-- JQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
