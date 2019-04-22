@@ -65,13 +65,14 @@ app.init = function() {
         const word = $('input[type=text]').val();
         $('h2.chosen-word').html(word.charAt(0).toUpperCase() + word.slice(1));
         $('.flip-card-inner').removeClass('flip-this-card').addClass('unflip-this-card');
+        $('h2').removeClass('fade').addClass('unfade');
         app.getSynonyms(word);
     });
 
     // 'new word' button 
     $('.new-word-button').on('click', function() {
         $('#word' + '.flip-card-inner').addClass('flip-this-card');
-        $('h2').addClass('fade');
+        $('h2').addClass('fade').removeClass('unfade');
     });
 
     

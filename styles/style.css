@@ -92,17 +92,23 @@ html { font-size: 62.5%; }
 
 img { width: 100%; }
 
+.rainbow-text { background-image: -webkit-gradient(linear, right top, left top, from(violet), color-stop(indigo), color-stop(blue), color-stop(green), color-stop(yellow), color-stop(orange), to(red)); background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.fade { opacity: 0.3; -webkit-transition: 0.8s; transition: 0.8s; }
+
+.unfade { opacity: 1; -webkit-transition: 1s; transition: 1s; }
+
 .word-form { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; width: 100%; height: 100%; }
 
-.word-form .userWord { font-size: 5rem; border: none; text-align: center; background: none; border-bottom: 1px solid rebeccapurple; }
+.word-form .userWord { font-size: 5rem; border: none; text-align: center; background: none; border-bottom: 1px solid rebeccapurple; color: rebeccapurple; }
 
-.word-form .userWord::-webkit-input-placeholder { font-size: 2rem; font-color: darkgray; opacity: 0.5; }
+.word-form .userWord::-webkit-input-placeholder { font-size: 2rem; color: darkgray; opacity: 0.5; }
 
-.word-form .userWord:-ms-input-placeholder { font-size: 2rem; font-color: darkgray; opacity: 0.5; }
+.word-form .userWord:-ms-input-placeholder { font-size: 2rem; color: darkgray; opacity: 0.5; }
 
-.word-form .userWord::-ms-input-placeholder { font-size: 2rem; font-color: darkgray; opacity: 0.5; }
+.word-form .userWord::-ms-input-placeholder { font-size: 2rem; color: darkgray; opacity: 0.5; }
 
-.word-form .userWord::placeholder { font-size: 2rem; font-color: darkgray; opacity: 0.5; }
+.word-form .userWord::placeholder { font-size: 2rem; color: darkgray; opacity: 0.5; }
 
 .word-form .submit { margin: 25px; }
 
@@ -115,10 +121,6 @@ img { width: 100%; }
 .half-wrapper { width: 100%; height: 50%; display: -webkit-box; display: -ms-flexbox; display: flex; }
 
 .section { width: 50vw; height: 50vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
-
-.section h2 { opacity: 0.8; margin: 0; padding: 0; font-size: 9rem; font-family: 'Righteous', cursive; color: rebeccapurple; }
-
-.section .chosen-word { font-size: 11rem; }
 
 .top-left .flip-card-f { background: #ffb3ba; }
 
@@ -152,19 +154,36 @@ img { width: 100%; }
 
 .chosen-word { -ms-flex-item-align: center; -ms-grid-row-align: center; align-self: center; vertical-align: center; }
 
-.flip-card-back, .flip-card-b { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); z-index: 1; display: -webkit-box; display: -ms-flexbox; display: flex; }
+.flip-card-back, .flip-card-b { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); z-index: 1; display: -webkit-box; display: -ms-flexbox; display: flex; position: relative; }
 
 .flip-card-b { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-.word-list { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; width: 100%; height: 100%; margin: 0; padding: 0; }
+h2 { margin: 0; padding: 0; font-size: 9rem; font-family: 'Righteous', cursive; color: rebeccapurple; }
 
-.word-list li { list-style: none; font-size: 3rem; padding: 5px; font-weight: bold; }
+.chosen-word { font-size: 11rem; }
 
-.rainbow-text { background-image: -webkit-gradient(linear, right top, left top, from(violet), color-stop(indigo), color-stop(blue), color-stop(green), color-stop(yellow), color-stop(orange), to(red)); background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.fa-arrow-circle-right { font-size: 7rem; position: absolute; bottom: 25px; right: 25px; color: #708090; opacity: 0.5; }
 
-.definition-list { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+.fa-arrow-circle-right:hover { -webkit-transform: rotateY(360deg); transform: rotateY(360deg); -webkit-transition: 1s; transition: 1s; }
 
-.new-word-button, .submit { background-color: lightblue; color: white; width: 100px; height: 100px; font-size: 2rem; border-radius: 50%; margin: 10px; }
+.word-list { width: 100%; height: 100%; margin: 0; padding: 0; }
+
+.word-list li { list-style: none; font-size: 3rem; padding: 5px; font-weight: bold; color: rebeccapurple; font-family: 'Indie Flower', cursive; }
+
+.definition-list { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; padding-left: 25px; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+
+.synonym-list, .antonym-list { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -ms-flex-wrap: wrap; flex-wrap: wrap; margin-top: 25px; margin-bottom: 25px; }
+
+.synonym-list .syn-list-item, .synonym-list .ant-list-item, .antonym-list .syn-list-item, .antonym-list .ant-list-item { text-align: center; }
+
+.new-word-button, .submit { background-color: lightblue; color: white; border: none; width: 100px; height: 100px; font-size: 2rem; border-radius: 50%; margin: 10px; }
 
 .new-word-button { -ms-flex-item-align: end; align-self: flex-end; }
+
+.new-word-button:hover, .submit:hover { animation: spin 4s linear infinite; -webkit-animation: spin 4s linear infinite; -moz-animation: spin 4s linear infinite; }
+
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+
+@keyframes spin { 100% { -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@
 	<title>Thesaurus API</title>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-	<link href="https://fonts.googleapis.com/css?family=Righteous|Courgette" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Righteous|Indie+Flower|Courgette" rel="stylesheet">
 
 	<link rel="stylesheet" href="styles/style.css">
 </head>
@@ -14,6 +14,8 @@
 	<div class="wrapper">
 
 	<div class="half-wrapper">
+
+		
 		<div class="section top-left flip-card">
 			<div class="flip-card-inner" id="word">
 				<div class="flip-card-f" id="word">					
@@ -21,9 +23,8 @@
 					<h2 class="chosen-word rainbow-text">
 						<!-- chosen word goes here -->
 					</h2>
-					
 				</div>
-				<div class="flip-card-b" id="word">					<!-- <div class="x"><p>X</p></div> -->
+				<div class="flip-card-b" id="word">					
 					<form class="word-form" action="">
 						<input class="userWord" type="text" autocomplete="off" name="word" placeholder="Type in a word! Adjectives work best :)" required>
 						<input class="submit" type="submit" name="submit">			 
@@ -32,46 +33,55 @@
 			</div>
 		</div>
 
+		<!-- Definition Card -->
 		<div class="section top-right flip-card">
 			<div class="flip-card-inner" id="def">
 				<div class="flip-card-front" id="def">
 					<h2 class="def-title">Definitions</h2>
+					<i class="fas fa-arrow-circle-right front-circle"></i>
 				</div>
 				<div class="flip-card-back" id="def">
 					<ul class="word-list definition-list">
 						<!-- definitions go here -->
 					</ul>
+					<i class="fas fa-arrow-circle-right"></i>
 				</div>
 			</div>	
 		</div>
 
 	</div>
 
+	<!-- Antonyms Card -->
 	<div class="half-wrapper">
 		<div class="section bottom-left flip-card">
 			<div class="flip-card-inner" id="ant">
 				<div class="flip-card-front" id="ant">
 					<h2 class="ant-title">Antonyms</h2>
+					<i class="fas fa-arrow-circle-right front-circle"></i>
 				</div>
 				<div class="antonyms flip-card-back" id="ant">
 					<ul class="word-list antonym-list">
 					<!-- antonyms go here -->
 					</ul>
+					<i class="fas fa-arrow-circle-right"></i>
 				</div>
 			</div>
 
 		</div>
 
+		<!-- Synonyms Card -->
 		<div class="section bottom-right flip-card">
 			<div class="flip-card-inner" id="syn">
 				<div class="flip-card-front" id="syn">
 					<h2 class="syn-title">Synonyms</h2>
+					<i class="fas fa-arrow-circle-right front-circle"></i>
 				</div>
 
 				<div class="synonyms flip-card-back" id="syn">
 					<ul class="word-list synonym-list">
 					<!-- synonyms go here -->
 					</ul>
+					<i class="fas fa-arrow-circle-right"></i>
 				</div>
 			</div>
 			

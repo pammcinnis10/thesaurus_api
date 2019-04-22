@@ -11,8 +11,23 @@ img {
     width: 100%;
 }
 
+.rainbow-text {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-// --------------------MODAL-------------------------------
+.fade {
+    opacity: 0.3;
+    transition: 0.8s;
+}
+
+.unfade {
+    opacity: 1;
+    transition: 1s;
+}
+
+// --------------------NEW WORD FORM-------------------------------
 
 
 .word-form {
@@ -28,10 +43,11 @@ img {
         text-align: center;
         background: none;
         border-bottom: 1px solid rebeccapurple;
+        color: rebeccapurple;
         // font-family: 'Courgette', cursive;
         &::placeholder {
             font-size: 2rem;
-            font-color: darkgray;
+            color: darkgray;
             opacity: 0.5;
         }
     }
@@ -81,17 +97,6 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    h2 {
-        opacity: 0.8;
-        margin: 0;
-        padding: 0;
-        font-size: 9rem;    
-        font-family: 'Righteous', cursive;
-        color: rebeccapurple;
-    }
-    .chosen-word {
-        font-size: 11rem;
-    }
 }
 
 .top-left {
@@ -180,6 +185,7 @@ img {
     transform: rotateY(180deg);
     z-index: 1;
     display: flex;
+    position: relative;
 }
 
 .flip-card-b {
@@ -188,11 +194,35 @@ img {
 }
 
 
-// definition, synonym and antonym word results -----------------
+// FRONT OF CARDS (DEF, SYN, ANT)
+h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 9rem;    
+    font-family: 'Righteous', cursive;
+    color: rebeccapurple;
+}
+.chosen-word {
+    font-size: 11rem;
+}
+.fa-arrow-circle-right {
+    font-size: 7rem;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    color: #708090;
+    opacity: 0.5;
+    &:hover {
+        transform: rotateY(360deg);
+        transition: 1s;
+    }
+}
 
+
+// BACK OF CARDS (DEF, SYN, ANT)
+
+// word results 
 .word-list {
-    display: flex;
-    flex-wrap: wrap;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -202,25 +232,36 @@ img {
         font-size: 3rem;
         padding: 5px;
         font-weight: bold;
+        color: rebeccapurple;
+        font-family: 'Indie Flower', cursive;
     }
 }
 
-.rainbow-text {
-    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .definition-list {
+    display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    padding-left: 25px;
+    justify-content: center;   
 }
 
+.synonym-list, .antonym-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    .syn-list-item, .ant-list-item {
+        text-align: center;
+    }
+}
 
 // new word button -------------
 
 .new-word-button, .submit {
     background-color: lightblue;
     color: white;
+    border: none;
     width: 100px;
     height: 100px;
     font-size: 2rem;
@@ -243,14 +284,15 @@ img {
 
 // Make an item spin ------------------------------
 
-// animation:spin 4s linear infinite;
-//     -webkit-animation:spin 4s linear infinite;
-//     -moz-animation:spin 4s linear infinite;
-// }
+.new-word-button:hover, .submit:hover {
+    animation:spin 4s linear infinite;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+}
 
-// @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-// @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-// @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
 
 
