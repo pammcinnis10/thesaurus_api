@@ -169,9 +169,6 @@ app.setUpEventListeners = function() {
 };
 
 
-
-
-
 app.init = function() {
 
     app.setUpEventListeners();
